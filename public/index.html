@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-style="studio">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BetterSkyward • Academic Workspace</title>
+  
+  <!-- Distinctive Architectural Font Suite -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+  <!-- Fullscreen Login Splash Screen (Ephemeral Session Gate) -->
+  <aside class="splash-screen" id="splashScreen" aria-label="Sign In Gate">
+    <div class="splash-card">
+      <header class="splash-header">
+        <div class="splash-emblem">⚡</div>
+        <h1 class="splash-title">BETTERSKYWARD</h1>
+        <p class="splash-subtitle">Alpine School District • Skyward Qmlativ</p>
+        <span class="splash-security-tag">🔒 Ephemeral In-Memory Session • 10-Minute Timeout</span>
+      </header>
+
+      <div class="alert-box error" id="splashAlert" style="display: none;"></div>
+
+      <form class="splash-form" id="splashLoginForm">
+        <div class="form-group">
+          <label for="splashUsername">Skyward Username / Student ID</label>
+          <input type="text" id="splashUsername" required placeholder="e.g. student123" autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <div class="label-row">
+            <label for="splashPassword">Password</label>
+            <button type="button" class="btn-toggle-pw" id="toggleSplashPwBtn" aria-label="Toggle password visibility">Show</button>
+          </div>
+          <input type="password" id="splashPassword" required placeholder="••••••••••••" autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn-primary splash-submit-btn" id="splashSubmitBtn">
+          <span>Sign In to Skyward</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="splash-divider">
+        <span>or</span>
+      </div>
+
+      <button type="button" class="btn-secondary splash-demo-btn" id="splashDemoBtn">
+        <span>Explore with Demo Account (Alex Mercer)</span>
+      </button>
+
+      <footer class="splash-footer">
+        <p>
+          Credentials and live sessions are held strictly in ephemeral memory. Any page refresh or 10 minutes of inactivity immediately wipes all session data.
+        </p>
+      </footer>
+    </div>
+  </aside>
+
+  <!-- App Shell -->
+  <div class="app-container" id="appContainer">
+    
+    <!-- Top Global Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <a href="#" class="brand" aria-label="BetterSkyward Home">
+          <span class="brand-icon">⚡</span>
+          <span class="brand-title">BETTERSKYWARD</span>
+        </a>
+        <span class="header-separator">/</span>
+        <div class="student-pill" id="studentPill">
+          <span class="student-name" id="studentName">Loading...</span>
+          <span class="student-district" id="studentDistrict">Alpine District</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Session Countdown Timer -->
+        <div class="session-timer" id="sessionTimerBadge" title="Ephemeral session timeout (10 min)">
+          <span class="timer-dot"></span>
+          <span class="timer-text" id="sessionTimerText">10:00</span>
+        </div>
+
+        <!-- Live Sync Status & Trigger -->
+        <div class="sync-status" id="syncStatus">
+          <span class="sync-dot" id="syncDot"></span>
+          <span class="sync-text" id="syncText">Connected</span>
+        </div>
+
+        <button class="btn-icon" id="syncBtn" title="Sync live data with Skyward" aria-label="Sync with Skyward">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+
+        <button class="btn-icon" id="logoutBtn" title="Log out & wipe session memory" aria-label="Log out">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="btn-icon" id="themeToggleBtn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Workspace Control Bar -->
+    <nav class="control-bar" aria-label="Workspace Controls">
+      <!-- 1. Primary View Modes: Grades vs Action/Missing Work -->
+      <div class="control-group view-switcher" role="tablist" aria-label="Primary View">
+        <button class="control-btn active" id="viewGradesBtn" role="tab" aria-selected="true" aria-controls="viewGrades">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Courses & Grades</span>
+        </button>
+        <button class="control-btn" id="viewActionBtn" role="tab" aria-selected="false" aria-controls="viewAction">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <span>Action & Missing Work</span>
+          <span class="badge-alert" id="actionMissingBadge" style="display: none;">0</span>
+        </button>
+      </div>
+
+      <!-- 2. Academic Term Selector -->
+      <div class="control-group term-switcher">
+        <button class="term-btn active" data-term="s1">Semester 1</button>
+        <button class="term-btn" data-term="s2">Semester 2</button>
+        <button class="term-btn" data-term="all">Full Year</button>
+      </div>
+
+      <!-- 3. Aesthetic Presets (Minimalist / Command / Studio) -->
+      <div class="control-group style-switcher" title="Choose your design aesthetic">
+        <span class="control-label">Aesthetic:</span>
+        <button class="style-btn" data-style-set="minimalist" title="Calm, spacious, elegant minimalist feel">Minimalist</button>
+        <button class="style-btn" data-style-set="command" title="Compact data-dense command ledger">Command</button>
+        <button class="style-btn active" data-style-set="studio" title="Refined modern software craft">Studio</button>
+      </div>
+    </nav>
+
+    <!-- Main Dynamic Content Workspace -->
+    <main class="main-content">
+      
+      <!-- VIEW 1: COURSES & GRADES OVERVIEW -->
+      <section id="viewGrades" class="view-panel active" role="tabpanel" aria-labelledby="viewGradesBtn">
+        
+        <!-- Summary KPI Metrics Row -->
+        <header class="kpi-grid">
+          <div class="kpi-card" id="cardGpa">
+            <span class="kpi-tag">CUMULATIVE GPA</span>
+            <div class="kpi-value-row">
+              <span class="kpi-number" id="kpiCumGpa">--</span>
+              <span class="kpi-pill" id="kpiTermGpa">TM1: --</span>
+            </div>
+            <span class="kpi-subtext" id="kpiGpaDetails">Official District Record</span>
+          </div>
+
+          <div class="kpi-card" id="cardCredits">
+            <span class="kpi-tag">GRADUATION CREDITS</span>
+            <div class="kpi-value-row">
+              <span class="kpi-number" id="kpiCredits">--</span>
+              <span class="kpi-pill subtle" id="kpiPoints">-- Pts</span>
+            </div>
+            <span class="kpi-subtext">On Track for Graduation</span>
+          </div>
+
+          <div class="kpi-card" id="cardMissing">
+            <span class="kpi-tag">MISSING ASSIGNMENTS</span>
+            <div class="kpi-value-row">
+              <span class="kpi-number alert" id="kpiMissingCount">0</span>
+              <span class="kpi-pill alert" id="kpiMissingBadge">None Missing</span>
+            </div>
+            <span class="kpi-subtext" id="kpiMissingSubtext">All coursework submitted</span>
+          </div>
+
+          <div class="kpi-card" id="cardStanding">
+            <span class="kpi-tag">COURSES ENROLLED</span>
+            <div class="kpi-value-row">
+              <span class="kpi-number" id="kpiCourseCount">--</span>
+              <span class="kpi-pill good">Good Standing</span>
+            </div>
+            <span class="kpi-subtext" id="kpiStandingDetails">Active Academic Term</span>
+          </div>
+        </header>
+
+        <!-- Search & Filter Bar -->
+        <div class="filter-strip">
+          <div class="search-box">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="courseSearchInput" placeholder="Filter classes, teachers, room numbers..." autocomplete="off">
+            <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search" style="display: none;">✕</button>
+          </div>
+
+          <div class="sort-controls">
+            <span class="control-label">Sort:</span>
+            <button class="sort-btn active" data-sort="period">Period</button>
+            <button class="sort-btn" data-sort="grade">Grade</button>
+            <button class="sort-btn" data-sort="name">Course</button>
+            <button class="sort-btn" data-sort="missing">Missing</button>
+          </div>
+        </div>
+
+        <!-- Course Cards Ledger List -->
+        <div class="courses-container" id="coursesContainer">
+          <!-- Dynamically populated course rows/cards -->
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <span>Loading gradebook records...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: ACTION & MISSING WORK PRIORITIZED -->
+      <section id="viewAction" class="view-panel" role="tabpanel" aria-labelledby="viewActionBtn">
+        
+        <!-- Action Hero Callout -->
+        <div class="action-banner">
+          <div class="action-banner-info">
+            <div class="action-headline">
+              <span class="action-alert-badge" id="actionUrgentCount">0 MISSING</span>
+              <h2>Action Required & Task Triage</h2>
+            </div>
+            <p class="action-desc">High-priority review of overdue coursework, missing assignments, and upcoming deadlines across all enrolled classes.</p>
+          </div>
+          <button class="btn-secondary" id="actionViewAllClassesBtn">
+            <span>Back to All Courses</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Missing Work Section -->
+        <div class="action-section">
+          <div class="section-title-row">
+            <div class="section-heading">
+              <span class="section-icon alert">⚠️</span>
+              <h3>Overdue & Missing Work</h3>
+            </div>
+            <span class="section-badge" id="missingSectionCount">0 items</span>
+          </div>
+
+          <div class="action-list" id="missingAssignmentsList">
+            <!-- Dynamically populated missing items -->
+          </div>
+        </div>
+
+        <!-- Upcoming Deadlines Section -->
+        <div class="action-section">
+          <div class="section-title-row">
+            <div class="section-heading">
+              <span class="section-icon">📅</span>
+              <h3>Upcoming Assignments & In-Progress</h3>
+            </div>
+            <span class="section-badge subtle" id="upcomingSectionCount">0 items</span>
+          </div>
+
+          <div class="action-list" id="upcomingAssignmentsList">
+            <!-- Dynamically populated upcoming items -->
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- Course & Assignment Inspector Slide-over Drawer -->
+    <div class="drawer-backdrop" id="inspectorBackdrop" aria-hidden="true"></div>
+    <aside class="inspector-drawer" id="inspectorDrawer" aria-label="Course Inspector" aria-hidden="true">
+      <header class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-meta-pills">
+            <span class="meta-pill" id="drawerPeriod">Period --</span>
+            <span class="meta-pill" id="drawerCode">Code --</span>
+            <span class="meta-pill" id="drawerRoom">Room --</span>
+          </div>
+          <h2 class="drawer-course-name" id="drawerCourseName">Course Detail</h2>
+          <div class="drawer-teacher-line">
+            <span class="drawer-teacher-name" id="drawerTeacherName">Instructor</span>
+            <span class="drawer-dot">•</span>
+            <span class="drawer-term" id="drawerTermName">Semester 1</span>
+          </div>
+        </div>
+
+        <button class="drawer-close-btn" id="closeDrawerBtn" aria-label="Close Inspector">✕</button>
+      </header>
+
+      <div class="drawer-body">
+        <!-- Grade Summary Card -->
+        <div class="drawer-score-card">
+          <div class="drawer-score-left">
+            <span class="drawer-score-letter" id="drawerGradeLetter">A</span>
+            <div class="drawer-score-details">
+              <span class="drawer-score-percent" id="drawerGradePercent">95.4%</span>
+              <span class="drawer-score-status" id="drawerGradeStatus">Passing • Grade is in good standing</span>
+            </div>
+          </div>
+          <div class="drawer-score-right">
+            <button class="btn-sm" id="editNicknameBtn" title="Set a clean nickname for this course">
+              Rename
+            </button>
+          </div>
+        </div>
+
+        <!-- Nickname Edit Bar (Initially Hidden) -->
+        <div class="nickname-bar" id="nicknameBar" style="display: none;">
+          <input type="text" id="nicknameInput" placeholder="Custom nickname (e.g. AP Calc)..." maxlength="50">
+          <button class="btn-sm primary" id="saveNicknameBtn">Save</button>
+          <button class="btn-sm" id="cancelNicknameBtn">Cancel</button>
+        </div>
+
+        <!-- Grade Weight Categories -->
+        <section class="drawer-section">
+          <h3 class="drawer-section-title">Evaluation Categories & Weighting</h3>
+          <div class="categories-list" id="drawerCategoriesList">
+            <!-- Category progress items -->
+          </div>
+        </section>
+
+        <!-- Assignment Roster Section -->
+        <section class="drawer-section">
+          <div class="drawer-section-header">
+            <h3 class="drawer-section-title">Assignment Roster</h3>
+            <div class="assignment-tabs" role="tablist">
+              <button class="asg-tab active" data-filter="all">All</button>
+              <button class="asg-tab" data-filter="missing">Missing</button>
+              <button class="asg-tab" data-filter="graded">Graded</button>
+            </div>
+          </div>
+
+          <div class="assignments-list" id="drawerAssignmentsList">
+            <!-- Assignment items -->
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <!-- Direct Skyward StudentSTS Login Modal -->
+    <div class="modal-backdrop" id="loginBackdrop" aria-hidden="true"></div>
+    <div class="modal-dialog" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle" aria-hidden="true">
+      <header class="modal-header">
+        <div class="modal-title-group">
+          <h3 id="loginModalTitle">Sign in to Skyward</h3>
+          <p class="modal-subtitle">Alpine School District • Direct StudentSTS Portal</p>
+        </div>
+        <button class="modal-close-btn" id="closeLoginModalBtn" aria-label="Close modal">✕</button>
+      </header>
+
+      <form class="modal-form" id="loginForm">
+        <div class="alert-box error" id="loginAlert" style="display: none;"></div>
+
+        <div class="form-group">
+          <label for="loginUsername">Skyward Username / Student ID</label>
+          <input type="text" id="loginUsername" required placeholder="e.g. 1029384" autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Skyward Password</label>
+          <input type="password" id="loginPassword" required placeholder="••••••••••••" autocomplete="current-password">
+        </div>
+
+        <p class="form-note">
+          🔒 Credentials are used only to negotiate the secure session token directly with Alpine District's StudentSTS endpoint. Passwords are never saved in plain text.
+        </p>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelLoginBtn">Cancel</button>
+          <button type="submit" class="btn-primary" id="submitLoginBtn">
+            <span>Authenticate & Sync</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Status Strip Toast at bottom -->
+    <div class="status-strip" id="statusStrip" role="status" aria-live="polite">
+      <span class="status-dot"></span>
+      <span class="status-message" id="statusMessage">Ready</span>
+    </div>
+
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

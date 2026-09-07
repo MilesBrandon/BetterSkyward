@@ -1,0 +1,23 @@
+# OS & editor files
+.DS_Store
+Thumbs.db
+*.log
+
+# Dependencies
+node_modules/
+
+# Environment and sensitive credentials
+.env
+.env.*
+
+# BetterSkyward Session & Live Student Data (Ephemeral / Ignored)
+data/active_session.json
+data/live_grades.json
+public/data/live_grades.json
+
+# Agent and IDE tooling directories
+.agent/
+.gemini/
+.impeccable/
+
+

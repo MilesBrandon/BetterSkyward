@@ -1,0 +1,480 @@
+{
+  "student": {
+    "id": "984210",
+    "name": "Alex Mercer",
+    "gradeLevel": 11,
+    "school": "Westlake High School",
+    "academicYear": "2026-2027",
+    "currentTerm": "Semester 1 (Term 2)",
+    "lastSynced": "2026-09-03T09:45:00Z"
+  },
+  "summary": {
+    "unweightedGpa": 3.79,
+    "weightedGpa": 4.29,
+    "totalCourses": 7,
+    "missingCount": 3,
+    "gradeBreakdown": {
+      "A": 4,
+      "B": 3,
+      "C": 0,
+      "D": 0,
+      "F": 0
+    }
+  },
+  "courses": [
+    {
+      "id": "crs-calc-bc",
+      "name": "AP Calculus BC",
+      "courseCode": "MTH501",
+      "period": 1,
+      "room": "B-204",
+      "teacher": {
+        "name": "Marcus Harrison",
+        "email": "mharrison@westlake.edu"
+      },
+      "grade": {
+        "letter": "A",
+        "percent": 94.2,
+        "points": 4.0,
+        "isPassing": true
+      },
+      "categories": [
+        { "name": "Summative Assessments", "weight": 70, "score": 93.8 },
+        { "name": "Formative & Problem Sets", "weight": 30, "score": 95.1 }
+      ],
+      "missingCount": 0,
+      "assignments": [
+        {
+          "id": "asg-calc-01",
+          "title": "Unit 3 Exam: Integration Techniques & Partial Fractions",
+          "category": "Summative Assessments",
+          "dueDate": "2026-09-01",
+          "score": 92,
+          "maxScore": 100,
+          "percent": 92.0,
+          "status": "graded",
+          "notes": "Excellent work on trigonometric substitution."
+        },
+        {
+          "id": "asg-calc-02",
+          "title": "Problem Set 3.4: Improper Integrals",
+          "category": "Formative & Problem Sets",
+          "dueDate": "2026-08-28",
+          "score": 20,
+          "maxScore": 20,
+          "percent": 100.0,
+          "status": "graded",
+          "notes": null
+        },
+        {
+          "id": "asg-calc-03",
+          "title": "Quiz 3B: Integration by Parts",
+          "category": "Summative Assessments",
+          "dueDate": "2026-08-22",
+          "score": 48,
+          "maxScore": 50,
+          "percent": 96.0,
+          "status": "graded",
+          "notes": null
+        },
+        {
+          "id": "asg-calc-04",
+          "title": "DeltaMath Practice 3.1-3.3",
+          "category": "Formative & Problem Sets",
+          "dueDate": "2026-08-18",
+          "score": 15,
+          "maxScore": 15,
+          "percent": 100.0,
+          "status": "graded",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "id": "crs-phys-c",
+      "name": "AP Physics C: Mechanics",
+      "courseCode": "SCI602",
+      "period": 2,
+      "room": "Sci-112",
+      "teacher": {
+        "name": "Dr. Aris Patel",
+        "email": "apatel@westlake.edu"
+      },
+      "grade": {
+        "letter": "B+",
+        "percent": 88.6,
+        "points": 3.3,
+        "isPassing": true
+      },
+      "categories": [
+        { "name": "Exams & Tests", "weight": 45, "score": 86.0 },
+        { "name": "Labs & Practicals", "weight": 35, "score": 89.5 },
+        { "name": "Homework & Quizzes", "weight": 20, "score": 93.0 }
+      ],
+      "missingCount": 1,
+      "assignments": [
+        {
+          "id": "asg-phys-01",
+          "title": "Lab 4 Formal Report: Rotational Dynamics & Moment of Inertia",
+          "category": "Labs & Practicals",
+          "dueDate": "2026-08-30",
+          "score": null,
+          "maxScore": 50,
+          "percent": null,
+          "status": "missing",
+          "notes": "Missing lab write-up and error analysis spreadsheet."
+        },
+        {
+          "id": "asg-phys-02",
+          "title": "Unit 2 Exam: Work, Energy & Non-Conservative Forces",
+          "category": "Exams & Tests",
+          "dueDate": "2026-08-25",
+          "score": 86,
+          "maxScore": 100,
+          "percent": 86.0,
+          "status": "graded",
+          "notes": null
+        },
+        {
+          "id": "asg-phys-03",
+          "title": "Lab 3: Work-Energy Theorem Verification",
+          "category": "Labs & Practicals",
+          "dueDate": "2026-08-19",
+          "score": 45,
+          "maxScore": 50,
+          "percent": 90.0,
+          "status": "graded",
+          "notes": "Good data correlation."
+        },
+        {
+          "id": "asg-phys-04",
+          "title": "HW Set 4: Conservation of Momentum in 2D",
+          "category": "Homework & Quizzes",
+          "dueDate": "2026-08-15",
+          "score": 28,
+          "maxScore": 30,
+          "percent": 93.3,
+          "status": "graded",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "id": "crs-lit",
+      "name": "AP English Literature",
+      "courseCode": "ENG401",
+      "period": 3,
+      "room": "A-108",
+      "teacher": {
+        "name": "Eleanor Vance",
+        "email": "evance@westlake.edu"
+      },
+      "grade": {
+        "letter": "A-",
+        "percent": 91.5,
+        "points": 3.7,
+        "isPassing": true
+      },
+      "categories": [
+        { "name": "Essays & Major Projects", "weight": 50, "score": 90.0 },
+        { "name": "Socratic Seminars & Quizzes", "weight": 30, "score": 93.5 },
+        { "name": "Dialectical Journals & Daily", "weight": 20, "score": 92.0 }
+      ],
+      "missingCount": 1,
+      "assignments": [
+        {
+          "id": "asg-lit-01",
+          "title": "Hamlet Act IV Dialectical Journal & Soliloquy Analysis",
+          "category": "Dialectical Journals & Daily",
+          "dueDate": "2026-08-31",
+          "score": null,
+          "maxScore": 25,
+          "percent": null,
+          "status": "missing",
+          "notes": "Pending submission on Canvas / turn in hard copy."
+        },
+        {
+          "id": "asg-lit-02",
+          "title": "Analytical Essay: Existential Themes in Rosencrantz & Guildenstern",
+          "category": "Essays & Major Projects",
+          "dueDate": "2026-08-26",
+          "score": 90,
+          "maxScore": 100,
+          "percent": 90.0,
+          "status": "graded",
+          "notes": "Insightful thesis and strong textual synthesis."
+        },
+        {
+          "id": "asg-lit-03",
+          "title": "Socratic Seminar: Hamlet Madness vs Pretense",
+          "category": "Socratic Seminars & Quizzes",
+          "dueDate": "2026-08-20",
+          "score": 38,
+          "maxScore": 40,
+          "percent": 95.0,
+          "status": "graded",
+          "notes": null
+        },
+        {
+          "id": "asg-lit-04",
+          "title": "Poetry Explication 2: Donne's Holy Sonnets",
+          "category": "Dialectical Journals & Daily",
+          "dueDate": "2026-08-14",
+          "score": 23,
+          "maxScore": 25,
+          "percent": 92.0,
+          "status": "graded",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "id": "crs-ush",
+      "name": "AP United States History",
+      "courseCode": "SOC301",
+      "period": 4,
+      "room": "C-301",
+      "teacher": {
+        "name": "Robert Henderson",
+        "email": "rhenderson@westlake.edu"
+      },
+      "grade": {
+        "letter": "A",
+        "percent": 96.0,
+        "points": 4.0,
+        "isPassing": true
+      },
+      "categories": [
+        { "name": "Unit Exams", "weight": 55, "score": 95.0 },
+        { "name": "DBQ & LEQ Essays", "weight": 30, "score": 97.0 },
+        { "name": "Reading Guides & Key Concepts", "weight": 15, "score": 98.0 }
+      ],
+      "missingCount": 0,
+      "assignments": [
+        {
+          "id": "asg-ush-01",
+          "title": "Period 4 Exam (1800-1848): Jeffersonian to Market Revolution",
+          "category": "Unit Exams",
+          "dueDate": "2026-09-02",
+          "score": 95,
+          "maxScore": 100,
+          "percent": 95.0,
+          "status": "graded",
+          "notes": "Strong historical reasoning."
+        },
+        {
+          "id": "asg-ush-02",
+          "title": "Document-Based Question (DBQ): Jacksonian Democracy",
+          "category": "DBQ & LEQ Essays",
+          "dueDate": "2026-08-27",
+          "score": 7,
+          "maxScore": 7,
+          "percent": 100.0,
+          "status": "graded",
+          "notes": "Full rubric points achieved."
+        },
+        {
+          "id": "asg-ush-03",
+          "title": "Chapter 11-12 AMSCO Key Concept Notes",
+          "category": "Reading Guides & Key Concepts",
+          "dueDate": "2026-08-21",
+          "score": 20,
+          "maxScore": 20,
+          "percent": 100.0,
+          "status": "graded",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "id": "crs-csp",
+      "name": "AP Computer Science Principles",
+      "courseCode": "CTE205",
+      "period": 5,
+      "room": "Tech-104",
+      "teacher": {
+        "name": "Wei Zhang",
+        "email": "wzhang@westlake.edu"
+      },
+      "grade": {
+        "letter": "A+",
+        "percent": 98.4,
+        "points": 4.0,
+        "isPassing": true
+      },
+      "categories": [
+        { "name": "Coding Projects & Portfolio", "weight": 60, "score": 99.0 },
+        { "name": "Quizzes & Concept Reviews", "weight": 25, "score": 97.0 },
+        { "name": "Daily Labs & Participation", "weight": 15, "score": 100.0 }
+      ],
+      "missingCount": 0,
+      "assignments": [
+        {
+          "id": "asg-csp-01",
+          "title": "Interactive Data Visualizer Project (Python / Canvas)",
+          "category": "Coding Projects & Portfolio",
+          "dueDate": "2026-09-01",
+          "score": 100,
+          "maxScore": 100,
+          "percent": 100.0,
+          "status": "graded",
+          "notes": "Outstanding UI design and clean modular code."
+        },
+        {
+          "id": "asg-csp-02",
+          "title": "Big Idea 3 Assessment: Algorithms & Complexity",
+          "category": "Quizzes & Concept Reviews",
+          "dueDate": "2026-08-24",
+          "score": 48,
+          "maxScore": 50,
+          "percent": 96.0,
+          "status": "graded",
+          "notes": null
+        },
+        {
+          "id": "asg-csp-03",
+          "title": "Network Protocols & Packet Switching Simulation",
+          "category": "Daily Labs & Participation",
+          "dueDate": "2026-08-16",
+          "score": 25,
+          "maxScore": 25,
+          "percent": 100.0,
+          "status": "graded",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "id": "crs-span",
+      "name": "Spanish III Honors",
+      "courseCode": "WLG302",
+      "period": 6,
+      "room": "L-115",
+      "teacher": {
+        "name": "Maria Gomez",
+        "email": "mgomez@westlake.edu"
+      },
+      "grade": {
+        "letter": "B",
+        "percent": 84.1,
+        "points": 3.0,
+        "isPassing": true
+      },
+      "categories": [
+        { "name": "Interpersonal Speaking & Listening", "weight": 30, "score": 82.0 },
+        { "name": "Presentational Writing & Projects", "weight": 30, "score": 85.0 },
+        { "name": "Interpretive Reading & Quizzes", "weight": 25, "score": 87.0 },
+        { "name": "Tarea y Práctica Diaria", "weight": 15, "score": 81.0 }
+      ],
+      "missingCount": 1,
+      "assignments": [
+        {
+          "id": "asg-span-01",
+          "title": "Cuaderno de Actividades: Subjuntivo en Cláusulas Nominales",
+          "category": "Tarea y Práctica Diaria",
+          "dueDate": "2026-08-29",
+          "score": null,
+          "maxScore": 20,
+          "percent": null,
+          "status": "missing",
+          "notes": "Turn in before the end of the 6-week grading cycle."
+        },
+        {
+          "id": "asg-span-02",
+          "title": "Entrevista Oral Grabada: Planes Futuros y Deseos",
+          "category": "Interpersonal Speaking & Listening",
+          "dueDate": "2026-08-23",
+          "score": 41,
+          "maxScore": 50,
+          "percent": 82.0,
+          "status": "graded",
+          "notes": "Review irregular subjunctive conjugations."
+        },
+        {
+          "id": "asg-span-03",
+          "title": "Ensayo Corto: Tradiciones y Leyendas Hispanoamericanas",
+          "category": "Presentational Writing & Projects",
+          "dueDate": "2026-08-17",
+          "score": 43,
+          "maxScore": 50,
+          "percent": 86.0,
+          "status": "graded",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "id": "crs-band",
+      "name": "Symphonic Wind Ensemble",
+      "courseCode": "MUS105",
+      "period": 7,
+      "room": "Music-1",
+      "teacher": {
+        "name": "David Rivera",
+        "email": "drivera@westlake.edu"
+      },
+      "grade": {
+        "letter": "A",
+        "percent": 100.0,
+        "points": 4.0,
+        "isPassing": true
+      },
+      "categories": [
+        { "name": "Concert Performances", "weight": 50, "score": 100.0 },
+        { "name": "Playing Assessments & Etudes", "weight": 35, "score": 100.0 },
+        { "name": "Daily Rehearsal & Contribution", "weight": 15, "score": 100.0 }
+      ],
+      "missingCount": 0,
+      "assignments": [
+        {
+          "id": "asg-band-01",
+          "title": "All-State Audition Etude Submission #1",
+          "category": "Playing Assessments & Etudes",
+          "dueDate": "2026-08-28",
+          "score": 50,
+          "maxScore": 50,
+          "percent": 100.0,
+          "status": "graded",
+          "notes": "Superb tone quality and rhythmic precision."
+        },
+        {
+          "id": "asg-band-02",
+          "title": "Fall Showcase Rehearsal Attendance & Preparedness",
+          "category": "Daily Rehearsal & Contribution",
+          "dueDate": "2026-08-25",
+          "score": 30,
+          "maxScore": 30,
+          "percent": 100.0,
+          "status": "graded",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "id": "crs-stats-s2",
+      "name": "AP Statistics",
+      "courseCode": "MTH602",
+      "period": 8,
+      "room": "B-210",
+      "term": "Semester 2",
+      "semester": 2,
+      "semesterLabel": "Semester 2",
+      "isUpcoming": true,
+      "isCurrentTerm": false,
+      "statusText": "Upcoming (Semester 2 • Jan 2027)",
+      "teacher": {
+        "name": "David Sterling",
+        "email": "dsterling@westlake.edu"
+      },
+      "grade": {
+        "letter": "N/A",
+        "percent": null,
+        "points": 0,
+        "isPassing": true
+      },
+      "categories": [],
+      "missingCount": 0,
+      "assignments": []
+    }
+  ]
+}

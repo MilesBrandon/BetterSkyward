@@ -1,0 +1,23 @@
+{
+  "name": "betterskyward",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A high-density, anti-card client and modern UI alternative for Skyward Qmlativ",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "auth": "node scripts/login_skyward.js"
+  },
+  "keywords": [
+    "skyward",
+    "qmlativ",
+    "gradebook",
+    "dashboard",
+    "client",
+    "classlink"
+  ],
+  "author": "Miles",
+  "license": "MIT"
+}

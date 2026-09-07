@@ -1,0 +1,23 @@
+# Project: Newest Skyward
+A modern, lightweight client and UI alternative for Skyward Qmlativ.
+
+## Objective
+Replace the slow, cluttered Skyward Qmlativ student web portal with a clean, fast dashboard. The app acts as a custom client that fetches raw JSON data directly from internal Qmlativ endpoints using an authenticated browser session, completely skipping DOM scraping.
+
+## System Architecture
+Authentication flows through an embedded browser or webview window to let the user log in via ClassLink SSO. This handles two-factor authentication and district redirects safely without storing raw student credentials.
+
+Once authenticated, the app captures the active session cookies or evaluates fetch requests directly within the authenticated context to query Qmlativ's internal XHR/REST endpoints. 
+
+Data is rendered in a modern, distraction-free front end with dark mode, high contrast grade cards, and direct assignment drill-downs.
+
+## Phase 1 Deliverables
+1. Mock Data Setup: Create a `mock_grades.json` file representing a typical Qmlativ gradebook response (6-8 courses, teacher names, current percentages, letter grades, category weightings, and missing assignments).
+2. Modern Dashboard: Build a responsive, fast frontend using Vite, React, and Tailwind CSS (or clean vanilla JS/CSS) that parses and renders the mock data cleanly.
+3. API Client Module: Write a modular fetch utility (`skywardApi.js`) ready to plug in session cookies and endpoint URLs mapped from Chrome DevTools to swap from mock data to live data.
+
+## Requirements & Constraints
+Never store plain-text school passwords.
+Do not simulate DOM clicks or rely on scraping web page elements.
+Keep UI modular, minimal, and fully separated from backend network requests.
+Handle network failures and expired session tokens gracefully with clear re-auth alerts.
